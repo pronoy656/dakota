@@ -52,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${syne.variable} dark scroll-smooth`}>
-      <body className="min-h-screen flex flex-col bg-[#07090e] text-slate-100 font-sans antialiased selection:bg-red-500 selection:text-white">
+    <html lang="en" className={`${plusJakartaSans.variable} ${syne.variable} light scroll-smooth`}>
+      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased selection:bg-red-500 selection:text-white">
         <ClientLayout>
           {children}
         </ClientLayout>

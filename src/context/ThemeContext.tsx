@@ -22,25 +22,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem('hdtees_theme') as Theme | null;
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      setThemeState(savedTheme);
-      applyTheme(savedTheme);
-    } else {
-      setThemeState('dark');
-      applyTheme('dark');
-    }
+    setThemeState('light');
+    applyTheme('light');
   }, []);
 
   const applyTheme = (t: Theme) => {
     const root = document.documentElement;
-    if (t === 'light') {
-      root.classList.remove('dark');
-      root.classList.add('light');
-    } else {
-      root.classList.remove('light');
-      root.classList.add('dark');
-    }
+    root.classList.remove('dark');
+    root.classList.add('light');
   };
 
   const setTheme = (newTheme: Theme) => {

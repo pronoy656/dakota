@@ -29,7 +29,7 @@ import {
 import { useCart } from '@/context/CartContext';
 import { useCurrency } from '@/context/CurrencyContext';
 import { useWishlist } from '@/context/WishlistContext';
-import { useTheme } from '@/context/ThemeContext';
+
 import { STORE_INFO } from '@/data/storeData';
 
 interface HeaderProps {
@@ -92,7 +92,7 @@ export default function Header({ onOpenSearch }: HeaderProps) {
   const { totalItemsCount, setIsCartOpen } = useCart();
   const { currency, setCurrency } = useCurrency();
   const { wishlist } = useWishlist();
-  const { theme, toggleTheme } = useTheme();
+
   
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
@@ -275,26 +275,24 @@ export default function Header({ onOpenSearch }: HeaderProps) {
             </div>
           </nav>
 
-          {/* Right Action Icons & Theme Switcher */}
+          {/* Right Action Icons & Search */}
           <div className="flex items-center space-x-2 sm:space-x-3">
-            {/* Dark / Light Mode Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 border border-transparent dark:border-white/10 transition-all flex items-center justify-center group"
-              title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
-              aria-label="Toggle Theme"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-amber-400 group-hover:rotate-45 transition-transform" />
-              ) : (
-                <Moon className="w-4 h-4 text-blue-500 group-hover:-rotate-12 transition-transform" />
-              )}
-            </button>
+            
+            {/* Desktop Search Input */}
+            <div className="relative hidden lg:flex items-center w-72 xl:w-96">
+              <input
+                type="text"
+                placeholder="Search DTF transfers, products..."
+                className="w-full bg-slate-100 border border-slate-200 text-slate-900 px-4 py-2.5 pl-11 rounded-xl text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500/30 hover:bg-slate-200/50 transition-all placeholder:text-slate-400 shadow-inner"
+                onClick={onOpenSearch}
+              />
+              <Search className="w-5 h-5 text-slate-400 absolute left-3.5 pointer-events-none" />
+            </div>
 
-            {/* Search */}
+            {/* Mobile Search Button */}
             <button
               onClick={onOpenSearch}
-              className="p-2.5 rounded-xl text-slate-500 hover:text-red-600 dark:text-slate-300 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+              className="lg:hidden p-2.5 rounded-xl text-slate-500 hover:text-blue-600 hover:bg-slate-100 transition-colors"
               title="Search catalog"
               aria-label="Search"
             >
@@ -342,17 +340,8 @@ export default function Header({ onOpenSearch }: HeaderProps) {
 
       {/* 3. MOBILE SLIDEOVER MENU */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0a0d14] border-b border-white/10 px-4 pt-4 pb-6 space-y-3 shadow-2xl animate-in slide-in-from-top-3 duration-200">
-          <div className="flex items-center justify-between pb-2 border-b border-white/10">
-            <span className="text-xs font-bold text-slate-400">Theme Preference</span>
-            <button
-              onClick={toggleTheme}
-              className="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 border border-white/10 text-white flex items-center space-x-2"
-            >
-              {theme === 'dark' ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5 text-blue-400" />}
-              <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
-            </button>
-          </div>
+        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-4 pb-6 space-y-3 shadow-2xl animate-in slide-in-from-top-3 duration-200">
+
 
           <div className="grid grid-cols-1 gap-1.5">
             {navLinks.map((link) => (
