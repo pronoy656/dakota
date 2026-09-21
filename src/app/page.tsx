@@ -35,7 +35,9 @@ import {
   Printer,
   Sun,
   Moon,
-  Eye
+  Eye,
+  Package,
+  Monitor
 } from 'lucide-react';
 import { PRODUCTS, COLLECTIONS, REVIEWS, FAQS, FABRICS_LIST, STORE_INFO, GANG_SHEET_SIZES } from '@/data/storeData';
 import ProductCard from '@/components/ProductCard';
@@ -146,69 +148,65 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: Animated Process Flow */}
-            <div className="relative mx-auto w-full max-w-[420px] flex flex-col mt-12 lg:mt-0">
+            {/* Right Column: 3D Circular Process Flow */}
+            <div className="relative mx-auto w-full max-w-[500px] aspect-square flex flex-col lg:block mt-12 lg:mt-0">
               
               {/* Glowing Background Blob */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-red-600/10 to-emerald-600/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-red-600/20 to-emerald-600/20 rounded-full blur-[100px] pointer-events-none" />
 
-              {/* Process Step 1 */}
-              <div className="relative z-10 w-[85%] self-start bg-white/95 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 p-5 rounded-3xl shadow-2xl hover:-translate-y-1 transition-transform duration-500">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-900/40 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-800/50 shadow-inner">
-                    <Palette className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-black uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-0.5">Step 1</div>
-                    <h4 className="text-sm font-black text-slate-900 dark:text-white">Upload &amp; Design</h4>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed font-medium">
-                      Submit your print-ready artwork. Our studio auto-nests your designs to maximize space.
-                    </p>
-                  </div>
+              {/* The Circular Track (Visible on lg) */}
+              <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border-[3px] border-dashed border-slate-300 dark:border-slate-700 animate-[spin_40s_linear_infinite] z-0" />
+
+              {/* Central Element */}
+              <div className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-28 h-28 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-[0_8px_0_theme(colors.slate.200)] dark:shadow-[0_8px_0_theme(colors.slate.950)] items-center justify-center">
+                 <div className="w-20 h-20 bg-slate-50 dark:bg-slate-900 rounded-full shadow-inner flex items-center justify-center">
+                   <Monitor className="w-8 h-8 text-slate-400 dark:text-slate-500 animate-pulse" />
+                 </div>
+              </div>
+
+              {/* Process Step 1: Select Product (Top Left) */}
+              <div className="relative lg:absolute lg:top-[5%] lg:left-[2%] z-10 w-full lg:w-[200px] mb-4 lg:mb-0 bg-white dark:bg-slate-800 rounded-3xl p-4 border border-slate-100 dark:border-slate-700 shadow-[0_10px_20px_rgba(0,0,0,0.05),_0_6px_0_theme(colors.slate.200)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.5),_0_6px_0_theme(colors.slate.950)] hover:-translate-y-2 hover:shadow-[0_15px_25px_rgba(0,0,0,0.1),_0_8px_0_theme(colors.slate.200)] dark:hover:shadow-[0_15px_25px_rgba(0,0,0,0.5),_0_8px_0_theme(colors.slate.950)] transition-all duration-300 group">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center font-black text-xs shadow-inner shrink-0">1</div>
+                  <h4 className="text-sm font-black text-slate-900 dark:text-white leading-tight">Product</h4>
+                </div>
+                <div className="h-20 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/10 rounded-2xl flex items-center justify-center shadow-inner border border-blue-200/50 dark:border-blue-800/30 relative">
+                   <Shirt className="w-10 h-10 text-blue-500 drop-shadow-md group-hover:scale-110 transition-transform" />
                 </div>
               </div>
 
-              {/* Animated Connector 1 */}
-              <div className="relative z-0 self-center flex flex-col items-center h-12 -my-2">
-                <div className="w-[2px] h-full bg-gradient-to-b from-blue-500/50 to-red-500/50 dark:from-blue-500/30 dark:to-red-500/30" />
-                <ArrowRight className="w-5 h-5 rotate-90 text-red-500 absolute top-1/2 -translate-y-1/2 animate-bounce shadow-xl rounded-full bg-white dark:bg-slate-900 p-0.5 border border-red-100 dark:border-red-900/50" />
-              </div>
-
-              {/* Process Step 2 */}
-              <div className="relative z-10 w-[85%] self-end bg-white/95 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 p-5 rounded-3xl shadow-2xl hover:-translate-y-1 transition-transform duration-500">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-900/40 flex items-center justify-center shrink-0 border border-red-100 dark:border-red-800/50 shadow-inner">
-                    <Printer className="w-6 h-6 text-red-600 dark:text-red-400" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-black uppercase tracking-wider text-red-600 dark:text-red-400 mb-0.5">Step 2</div>
-                    <h4 className="text-sm font-black text-slate-900 dark:text-white">Precision Print</h4>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed font-medium">
-                      Printed on PET film with Japanese pigment inks and a high-density white underbase.
-                    </p>
-                  </div>
+              {/* Process Step 2: Select Design (Top Right) */}
+              <div className="relative lg:absolute lg:top-[5%] lg:right-[2%] z-20 w-full lg:w-[200px] mb-4 lg:mb-0 bg-white dark:bg-slate-800 rounded-3xl p-4 border border-slate-100 dark:border-slate-700 shadow-[0_10px_20px_rgba(0,0,0,0.05),_0_6px_0_theme(colors.slate.200)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.5),_0_6px_0_theme(colors.slate.950)] hover:-translate-y-2 hover:shadow-[0_15px_25px_rgba(0,0,0,0.1),_0_8px_0_theme(colors.slate.200)] dark:hover:shadow-[0_15px_25px_rgba(0,0,0,0.5),_0_8px_0_theme(colors.slate.950)] transition-all duration-300 group">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center font-black text-xs shadow-inner shrink-0">2</div>
+                  <h4 className="text-sm font-black text-slate-900 dark:text-white leading-tight">Design</h4>
+                </div>
+                <div className="h-20 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-900/10 rounded-2xl flex flex-col items-center justify-center shadow-inner border-2 border-dashed border-purple-200 dark:border-purple-800/50 relative">
+                   <UploadCloud className="w-8 h-8 text-purple-500 mb-1 drop-shadow-md group-hover:scale-110 transition-transform" />
+                   <span className="text-[9px] font-black text-purple-600/70 dark:text-purple-400/70">UPLOAD PDF</span>
                 </div>
               </div>
 
-              {/* Animated Connector 2 */}
-              <div className="relative z-0 self-center flex flex-col items-center h-12 -my-2">
-                <div className="w-[2px] h-full bg-gradient-to-b from-red-500/50 to-emerald-500/50 dark:from-red-500/30 dark:to-emerald-500/30" />
-                <ArrowRight className="w-5 h-5 rotate-90 text-emerald-500 absolute top-1/2 -translate-y-1/2 animate-bounce shadow-xl rounded-full bg-white dark:bg-slate-900 p-0.5 border border-emerald-100 dark:border-emerald-900/50" style={{ animationDelay: '0.2s' }} />
+              {/* Process Step 3: Print & Ready (Bottom Right) */}
+              <div className="relative lg:absolute lg:bottom-[5%] lg:right-[2%] z-30 w-full lg:w-[200px] mb-4 lg:mb-0 bg-white dark:bg-slate-800 rounded-3xl p-4 border border-slate-100 dark:border-slate-700 shadow-[0_10px_20px_rgba(0,0,0,0.05),_0_6px_0_theme(colors.slate.200)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.5),_0_6px_0_theme(colors.slate.950)] hover:-translate-y-2 hover:shadow-[0_15px_25px_rgba(0,0,0,0.1),_0_8px_0_theme(colors.slate.200)] dark:hover:shadow-[0_15px_25px_rgba(0,0,0,0.5),_0_8px_0_theme(colors.slate.950)] transition-all duration-300 group">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center font-black text-xs shadow-inner shrink-0">3</div>
+                  <h4 className="text-sm font-black text-slate-900 dark:text-white leading-tight">Print</h4>
+                </div>
+                <div className="h-20 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-900/10 rounded-2xl flex items-center justify-center shadow-inner border border-emerald-200/50 dark:border-emerald-800/30 relative overflow-hidden">
+                   <Printer className="w-10 h-10 text-emerald-500 drop-shadow-md group-hover:scale-110 transition-transform z-10" />
+                   <div className="absolute top-1/2 left-0 w-full h-[2px] bg-emerald-400 shadow-[0_0_10px_#34d399] animate-[pulse_1.5s_infinite] z-20" />
+                </div>
               </div>
 
-              {/* Process Step 3 */}
-              <div className="relative z-10 w-[85%] self-start bg-white/95 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 p-5 rounded-3xl shadow-2xl hover:-translate-y-1 transition-transform duration-500">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-900/40 flex items-center justify-center shrink-0 border border-emerald-100 dark:border-emerald-800/50 shadow-inner">
-                    <Flame className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-0.5">Step 3</div>
-                    <h4 className="text-sm font-black text-slate-900 dark:text-white">Press &amp; Peel</h4>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed font-medium">
-                      12-15 seconds at 300°F. Peel cold for a vibrant, zero-weed finish that lasts 50+ washes.
-                    </p>
-                  </div>
+              {/* Process Step 4: Delivered (Bottom Left) */}
+              <div className="relative lg:absolute lg:bottom-[5%] lg:left-[2%] z-40 w-full lg:w-[200px] bg-white dark:bg-slate-800 rounded-3xl p-4 border border-slate-100 dark:border-slate-700 shadow-[0_10px_20px_rgba(0,0,0,0.05),_0_6px_0_theme(colors.slate.200)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.5),_0_6px_0_theme(colors.slate.950)] hover:-translate-y-2 hover:shadow-[0_15px_25px_rgba(0,0,0,0.1),_0_8px_0_theme(colors.slate.200)] dark:hover:shadow-[0_15px_25px_rgba(0,0,0,0.5),_0_8px_0_theme(colors.slate.950)] transition-all duration-300 group">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center font-black text-xs shadow-inner shrink-0">4</div>
+                  <h4 className="text-sm font-black text-slate-900 dark:text-white leading-tight">Delivered</h4>
+                </div>
+                <div className="h-20 bg-gradient-to-br from-amber-50 to-orange-100 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl flex items-center justify-center shadow-inner border border-amber-200 dark:border-amber-900/50 relative">
+                   <Package className="w-10 h-10 text-amber-500 drop-shadow-md group-hover:scale-110 transition-transform" />
                 </div>
               </div>
 
