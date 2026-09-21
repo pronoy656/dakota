@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { HelpCircle, Search, ChevronDown, ArrowLeft, Phone, Mail, Flame, MessageCircle, MapPin, Zap, ShieldCheck } from 'lucide-react';
+import { HelpCircle, Search, ChevronDown, ArrowLeft, Phone, Mail, Flame, MessageCircle, MapPin, Zap, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { FAQS, STORE_INFO } from '@/data/storeData';
 
 export default function FAQPage() {

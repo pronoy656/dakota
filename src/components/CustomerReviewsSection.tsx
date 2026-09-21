@@ -189,10 +189,7 @@ export default function CustomerReviewsSection() {
 
       {/* Header & Persona Title */}
       <div className="text-center space-y-3 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-6 duration-700">
-        <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-red-50 dark:bg-red-950/60 border border-red-200 dark:border-red-800/40 text-red-600 dark:text-red-400 text-xs font-black tracking-wide uppercase shadow-xs">
-          <span>🇨🇦</span>
-          <span>Verified Canadian Customer Reviews</span>
-        </div>
+
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 dark:text-white tracking-tight font-heading">
           Trusted by <span className="text-red-600 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-[#ef4444] dark:via-orange-400 dark:to-amber-400">1,200+ Canadian Brands</span>
